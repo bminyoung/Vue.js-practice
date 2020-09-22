@@ -4,4 +4,4 @@ For learning Vue.js
 
 
 #### Ref
-[À¥-°ÔÀÓÀ»-¸¸µé¸ç-¹è¿ì´Â-Vue](https://www.inflearn.com/course/web-game-vue)
+[ì›¹ ê²Œì„ì„ ë§Œë“¤ë©° ë°°ìš°ëŠ” Vue](https://www.inflearn.com/course/web-game-vue)
