@@ -9,22 +9,36 @@
 </head>
 <body>
     <div id="root">
-        <div>{{word}}</div>
-        <form v-on:submit="onSubmitForm">
-            <input type="text" v-model="value" ref="answer">
-            <button type="submit">입력</button>
-        </form>
-        <div>{{result}}</div>
+        <!-- kebab -> camel로 알아서 매핑한다 -->
+        <word-relay start-word="바보"></word-relay>
+        <word-relay start-word="바보바보"></word-relay>
+        <word-relay start-word="히히"></word-relay>
     </div>
+
     <script>
-        const app = new Vue({
-            el: '#root',
-            data: {
-                word: '시작',
-                value: '',
-                result: '',
+        Vue.component('word-relay',{ //전역 컴포넌트
+            props:[
+                'startWord'
+            ],
+
+            template:`
+            <div>
+                <div>{{word}}</div>
+                <form v-on:submit="onSubmitForm">
+                    <input type="text" v-model="value" ref="answer">
+                    <button type="submit">입력</button>
+                </form>
+                <div>{{result}}</div>
+            </div>
+            `,
+            data(){
+                return {
+                    word: this.startWord,
+                    value: '',
+                    result: '',
+                }
             },
-            methods: {
+            methods:{
                 onSubmitForm(e){
                     e.preventDefault();
                     if(this.word[this.word.length-1] === this.value[0]){
@@ -38,6 +52,14 @@
                     this.$refs.answer.focus();
                 }
             },
+        })
+
+    </script>
+
+
+    <script>
+        const app = new Vue({
+            el: '#root',
         });
     </script>
 </body>
