@@ -1,10 +1,15 @@
 <template>
   <div>
+    <!-- 아래의 message가 바뀌면 전체가 다시 로딩된다 -> 시간이 오래걸리는 계산식을 쓴다면? -->
+    <!-- computed를 쓰면 캐싱이 되기 때문에 다시 계산x -->
     <div id="screen" :class="state" @click="onClickScreen">{{message}}</div>
-    <div>
-      <div>평균 시간: {{result.reduce((a,c) => a + c, 0) / result.length || 0}}ms</div>
+    
+    <!-- v-if: 태그자체가 존재x / v-show: display none처리 -->
+    <!-- div 대신 template => 없는셈 쳐진다 (위 screen, 아래 div, btn은 형제) -->
+    <template v-show="result.length">
+      <div>평균 시간: {{average}}ms</div>
       <button @click="onReset">리셋</button>
-    </div>
+    </template>
   </div>
 </template>
 
@@ -20,6 +25,14 @@
         message: '클릭해서 시작하세요.',
       }
     },
+
+    // 성능에 영향을 준다
+    computed: {
+      average(){
+        return this.result.reduce((a,c) => a + c, 0) / this.result.length || 0;
+      }
+    },
+    
     methods: {
       onReset(){
         this.result = [];
