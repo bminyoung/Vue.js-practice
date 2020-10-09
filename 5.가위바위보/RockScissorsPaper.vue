@@ -8,15 +8,16 @@
         </div>
         <div>{{result}}</div>
         <div>현재 {{score}}점</div>
+        <lifecycle-example v-if="true" />
     </div>
 </template>
 
 <script>
-const rspCoords = {
-    바위: '0',
-    가위: '-142px',
-    보: '-284px',
-}
+    const rspCoords = {
+        바위: '0',
+        가위: '-142px',
+        보: '-284px',
+    };
 
 export default{
     data(){
@@ -29,7 +30,7 @@ export default{
     computed:{
         computedStyleObject(){
             return{
-                background: 'url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${this.imgCoord} 0',
+                background: `url(https://en.pimg.jp/023/182/267/1/23182267.jpg) ${this.imgCoord} 0`,
             }
         }
     },
@@ -40,6 +41,26 @@ export default{
             // }
         },
     },
+
+    beforeCreate(){
+        console.log('beforeCreated');
+    },
+
+    created(){
+        console.log('created');
+    },
+
+    mounted(){
+        console.log('mounted');
+    },
+
+    updated(){
+        console.log('updated');
+    },
+
+    destroyed(){
+        // console.log('created');
+    }
 }
 </script>
 
