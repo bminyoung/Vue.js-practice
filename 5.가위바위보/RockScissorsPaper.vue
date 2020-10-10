@@ -62,6 +62,7 @@ export default{
         },
 
         onClickButton(choice){
+            //결과를 보여주기 위해 잠깐 멈춤
             clearInterval(interval);
             const myScore = scores[choice];
             const cpuScore = scores[computerChoice(this.imgCoord)];
