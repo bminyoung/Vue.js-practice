@@ -6,19 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>좋아요</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- Vue 파일을 분리하지 않고 바로 사용할 때 -->
 </head>
 <body>
     <div id="root">
         <div v-if="liked">좋아요 눌렀음</div>
         <button v-else v-on:click="onClickButton">Like</button>
+        <!-- 'v-if'와 'v-else' 는 형제태그 & 인접해야한다 -->
+        <!-- 'v-on:click' = '@click' -->
     </div>
 </body>
 <script>
     const app = new Vue({
+        // Vue 인스턴스와 연결할 element: id로 'root'를 가지는 el
         el: '#root',
+        // Vue가 관리할 변수
         data: {
             liked: false,
         },
+        // Vue에서 사용할 함수
         methods: {
             onClickButton(){
                 this.liked = true;
