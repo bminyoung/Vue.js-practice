@@ -9,8 +9,11 @@
 </head>
 <body>
     <div id="root">
+        <!-- {{}} (중괄호 2개): 값을 나타낼 수 있다 (사칙연산 등 수식도 가능) -->
         <div>{{first}}곱하기 {{second}}는?</div>
+        <!-- v-on:submit = @submit -->
         <form v-on:submit="onSubmitForm">
+            <!-- v-model: 값 연결 -->
             <input type="number" ref="answer" v-model="value">
             <button type="submit">입력</button>
         </form>
@@ -27,12 +30,13 @@
             },
             methods: {
                 onSubmitForm(e){
-                    e.preventDefault();
+                    e.preventDefault(); // 페이지 새로고침 막음
                     if(this.first*this.second === parseInt(this.value)){
                         this.result = '정답';
                         this.first = Math.ceil(Math.random()*9);
                         this.second = Math.ceil(Math.random()*9);
                         this.value = '';
+                        // 위에서 ref="answer" 지정
                         this.$refs.answer.focus();
                     }else{
                         this.result = '땡';
