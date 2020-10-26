@@ -51,3 +51,8 @@ entry: {
 ※ 특정 버전 설치하기
 `npm i vue@[version]`    
 ex) `npm i vue@2.7.0`
+
+
+#### In webpack.config.js
+- entry의 파일을 처리 => 처리하다가 이상한거() 만나면 module의 rules가 처리
+  => 최종 결과물로 output, output이 나오기 전에 plugin이 전처리
