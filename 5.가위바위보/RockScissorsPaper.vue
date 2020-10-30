@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- :style - style을 동적으로 변화시킬수 있다 & computed를 사용해서 값이 변화할 때 자동으로 값을 바꾼다 -->
         <div id="computer" :style="computedStyleObject"></div>
         <div>
             <button @click="onClickButton('바위')">바위</button>
@@ -115,7 +116,7 @@ export default{
 
     //component가 없어질때
     destroyed(){
-        // console.log('created');
+        console.log('destroyed');
     }
 }
 </script>

@@ -7,6 +7,7 @@
     </form>
     <div>시도: {{tries.length}}</div>
     <ul>
+      <!-- v-for: 반복 (foreach 생각하면 될 것 같다) -->
       <li v-for="t in tries" :key="t.try">
         <div>{{t.try}}</div>
         <div>{{t.result}}</div>
